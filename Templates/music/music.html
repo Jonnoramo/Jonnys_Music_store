@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load song_extras %}
+{% block content %}
+    <div class="row intro">
+        <div class="container">
+            <h1>Sample of Songs</h1>
+        </div>
+    </div>
+
+   <div id="singlesong">
+        <p>Name: {{ song }}</p>
+    <p>Artist: <a href="/artists/{{ song.artist }}/">{{ song.artist }}</a></p>
+    <p>Album: <a href="/albums/{{ song.album }}/">{{ song.album }}</a></p>
+    <p><audio controls="controls">
+        <source src="{{ song.audio_track.url }}" type="audio/mpeg" />
+    </audio>
+</div>              
+    <div class="container">
+    <div class="row">
+        <div class="col-md-12 text-justify">
+            <h2>Need inspiration?</h2>
+            <p>
+                Hope you've watched the video on the homepage/.
+                View the most polpular music, chat online and listen to a demo below of the song.
+            </p>
+            <p> That will give you a better idea of what musics on offer and purchase your music on here to get 25% off.</p><hr>
+            <h4> Happy Browsing! </h4>
+            <hr>
+        </div>
+
+    </div>
+    </div>
+
+    <div class="container table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Subscribe</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for music in music %}
+            <tr>
+                <td>{{ song.name }}</td>
+            <td>{{ song.description }}</td>
+            <td>€ {{ song.price }}</td>
+            <td>{% paypal_form_for song user %}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+{% endblock %}
+

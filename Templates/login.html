@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load bootstrap_tags %}
+{% block content %}
+    <div class="basic-box form-frame">
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <form role="form" method="post" action="{% url 'login' %}">
+                    <legend>Log In. &nbsp;<b>Ready for action?</b></legend>
+                    {% csrf_token %}
+                    {{ form| as_bootstrap }}
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+    </div>
+{% endblock %}

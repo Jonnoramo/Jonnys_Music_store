@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+{% load bootstrap_tags %}
+
+ <div class="dialog-buttons">
+                <button type="submit" class=" btn btn-info">New Post</button>
+                </div>
+                form action="/my-handling-form-page" method="post">
+                <div>
+                 <label for="name">Name:</label>
+                 <input type="text" id="name" name="user_name">
+                </div>
+                <div>
+                <label for="mail">E-mail:</label>
+                <input type="email" id="mail" name="user_mail">
+                </div>
+                <div>
+                <label for="msg">Message:</label>
+                <textarea id="msg" name="user_message"></textarea>
+                </div>
+                </form>
+                <div class="blog-set">
+            {% for post in posts %}
+                <div class="blog-card" onclick="location.href='{{ post.id }}';">
+                    {% if post.image %}
+                        <div class="image">
+                            <img src="{{ post.image.medium.url}}" alt="Blog image for {{ post.title}}">
+                        </div>
+                    {% endif %}
+                    <div class="text-content">
+                        <div class="details">
+                            <h4><strong>{{ post.title|truncatechars_html:60 }}</strong></h4>
+                            <p>
+                                <strong>{{ post.author.public_name }}</strong><br>
+                                <span class="text-muted">{{ post.published_date | date:"d M Y" }}</span>
+                            </p>
+                        </div>
+                         <div class="col-sm-12">
+                        <h3 class="firstColour">{{ post.title }}</h3>
+                        <br>
+                        By <a href="{% url 'member_detail' post.author.id %}"><b>{{ post.author.first_name }} {{ post.author.last_name }}</b></a>
+                    </div>
+  
+{% endblock %}
+                  

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load bootstrap_tags %}
+{% load staticfiles %}
+{% block head_js %}
+    <script src="{% static 'js/tinymce/tinymce.min.js' %}"></script>
+    <script>
+        tinyMCE.init({
+            mode: "textareas",
+            theme: "modern",
+            plugins: "paste"
+        });
+    </script>
+{% endblock %}
+{% block content %}
+    <div class="row basic-box dotted-background">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">      
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form | as_bootstrap}}
+                <br>
+                <div class=" row">
+                    <div class="col-sm-6 form-group">
+                     <div class="dialog-buttons">
+                <button type="Cancel" class=" btn btn-info">Cancel post</button>
+                </div>   
+                    </div>
+                    <div class="dialog-buttons">
+                <button type="submit" class=" btn btn-info">Post blog entry</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-sm-4"></div>
+    </div>   
+{% endblock %}

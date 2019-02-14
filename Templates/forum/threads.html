@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% load threads_extras %}
+{% block content %}
+<div class="basic-box">
+    <div class="row">
+
+        <div id ="internal-frame-left-intro" class="col-sm-3"><!-- Lateral introduction -->
+            <h2>{{ subject.name }}</h2>
+            {% autoescape off %}
+                {{ subject.description }}
+            {% endautoescape %}
+            <table>
+                <tr>
+                    <th class="gap-between-table-elements">THREADS</th>
+                    <th class="gap-between-table-elements">POSTS</th>
+                </tr>
+                <tr>
+                    <td class="gap-between-table-elements">{{ subject.threads.count }}</td>
+                    <td class="gap-between-table-elements">{{ subject|get_total_subject_posts }}</td>
+                </tr>
+            </table>
+            <section>
+                <div class="dropdown">
+                    <button id = "ad" class="btn btn-default dropdown-toggle standard-style-button" type="button" data-toggle="dropdown"> List of threads&nbsp;&nbsp;
+                    <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        {% for thread in subject.threads.all %}
+                            <li> <a href="{% url 'thread' thread.id %}">{{ thread.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </section>
+        </div><!-- End lateral introduction -->
+
+        <div class="col-sm-9">
+            <div class="row">
+                <div class="col-sm-4 ">
+                    <hr>
+                        <h3>Welcome to the community.
+                            <br>Click on a thread.
+                            <br>Don't hesitate to participate.
+                            <br><b>Don't be shy!</b></h3><br>
+                </div>
+                <div class="col-sm-4 ">
+                   <hr>
+                    <h3>Have a look at our threads.
+                    <br>If there is no one that fits you,
+                    <br><b>create a new one!</b></h3>
+                    <br>
+                    {% if user.is_authenticated %}
+                        <p>
+                            <a href="{% url 'new_thread' subject.id %}" class="btn btn-default standard-style-button"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>&nbsp;&nbsp;New thread</a>
+                        </p>
+                    {% endif %}
+                </div>
+                <div class="col-sm-4">
+                    <hr>
+                    <h3>Maybe the thread that you're
+                        <br>interested in doesn't fit
+                        <br> this subject.</h3>
+                        <br>
+                        <a href="{% url 'forum' %}" class="btn btn-default btn-md standard-style-button">
+                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>&nbsp; Subjects
+                        </a>
+                </div>
+                <div class="col-sm-12 thread-list">
+                    <div  class="row ">
+                        {% for thread in subject.threads.all %}
+                            <div class="col-md-12 thread-list-item" >
+                            {% include "forum/thread_item.html" %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div><!-- End col-sm-12 inside of col-sm-9 -->
+            </div><!-- End row -->
+        </div><!-- End col-sm-9 -->
+
+    </div><!-- End row -->
+</div><!-- End basic-box -->
+{% endblock %}

@@ -1,0 +1,28 @@
+{% load threads_extras %}
+<div class="row poll-box" ng-app="pollApp">
+    <div class="col-sm-12" >
+        <div ng-controller="PollCtrl">
+            <div>
+                <b><span class="glyphicon glyphicon-stats" aria-hidden="true"></span>&nbsp;&nbsp;<span class="firstColour">{$ poll.question $}</span></b>
+            </div>
+            <br>
+            <p>Total votes: {$ poll.total_votes $}</p>
+            <div ng-repeat="subject in poll.subjects">
+                <div class="col-sm-11">
+                    <strong>{$ subject.name $}</strong>
+                    <span class="pull-right">{$ subject.percentage_votes_per_subject $}%</span>
+                </div>
+                <span id="tick-vote" ng-if="poll.user_has_voted == false" ng-click='vote(poll, subject)' class="glyphicon glyphicon-ok col-sm-1 btn-vote"></span>
+                <div class="col-sm-11">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-info"
+                          role="progressbar" aria-value="{$ subject.percentage_votes_per_subject $}"
+                          aria-valuemin="0" aria-valuemax="100"
+                          style="width:{$ subject.percentage_votes_per_subject $}%">Votes: {$ subject.total_votes_per_subject $}
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- End ng-repeat -->
+        </div>
+    </div>
+</div>

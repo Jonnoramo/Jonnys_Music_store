@@ -1,0 +1,162 @@
+body{
+    font-family: 'Lato', SansSerif;
+}
+
+p{
+    font-family: sans-serif;
+    font-size: 20px;
+    font-weight: bolder;
+    color: red;
+}
+
+/* Style all font awesome icons */
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+  opacity: 0.7;
+}
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+/* Twitter */
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.btn-info{
+    color: #85bfea;
+}
+
+.navbar-inverse{
+    font-weight: bolder;
+}
+
+#contact{
+    padding: 30px 0;
+}
+
+#contact h2{
+    padding: 10px;
+}
+#contact i{
+    color: #85bfea;
+
+}
+
+#forum a{
+    text-decoration: none;
+    color: #000;
+}
+
+
+#thread-item a{
+    text-decoration: none;
+    color: #000000;
+}
+
+.thread-btns, #new-thread {
+    padding: 10px;
+}
+
+#login i{
+    font-size: 30px;
+    color:#85bfea;
+    padding: 10px;
+}
+#googleMap{
+    min-height: 320px;
+    padding: 30px;
+}
+
+#home-page{
+    background-color: #85bfea;
+    display: block;
+    align-items: center;
+    padding: 30px 0;
+    background: url("/static/images/intro.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    font-weight: bolder;
+    text-shadow: 2px 2px #000;
+}
+
+#music-store{
+    padding:30px 0;
+    text-align: justify;
+}
+#music-store i{
+    font-size: 80px;
+    color: #85bfea;
+}
+
+#whatis{
+    background-color: #1b6d85;
+    color: #fff;
+    padding: 30px 0;
+}
+
+#whatis i{
+    font-size: 80px;
+    color:#fff;
+}
+
+#whatis p{
+    text-align: justify;
+}
+
+#footer{
+    background-color: #fff;
+    color: #878787;
+    padding: 30px 0px;
+}
+
+#footer a{
+    text-decoration: none;
+    color: inherit;
+}
+
+#footer i{
+    font-size: 40px;
+}
+
+#footer p{
+    text-align: justify;
+}
+
+#about{
+    padding: 30px 0;
+}
+
+#about i{
+    font-size: 40px;
+    color: #85bfea;
+    padding: 10px;
+}
+
+.intro{
+    color: #fff;
+    background-color: #1b6d85;
+}
+
+button{
+    display: inline-block;
+    color: yellow;
+    border: solid;
+    padding: 15px;
+    border-style: dashed;
+}

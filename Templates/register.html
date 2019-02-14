@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load bootstrap_tags %}
+{% load staticfiles %}
+
+{%  block head_js %}
+    <script src="https://js.stripe.com/v2/" type="text/javascript"></script>
+  <script type="text/javascript">
+      //<![CDATA[
+      Stripe.publishableKey = '{{ publishable }}';
+      //]]>
+  </script>
+  <script type="text/javascript" src="{% static "js/stripe.js" %}"></script>
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="row intro">
+        <div class="container">
+            <h1>Register</h1>
+        </div>
+    </div>
+
+    <div class="container text-justify" >
+        <div class="row">
+            <h2>Please create a new account below:</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-7">
+
+                <form role="form" method="post" id="register-form" action="{% url 'register' %}">
+
+                    <div id="credit-card-errors" style="display:none">
+                        <div class="alert-message block-message error" id="stripe-error-message"></div>
+                    </div>
+
+
+                <legend>Create a new account:</legend>
+                {% csrf_token %}
+                {{ form| as_bootstrap }}
+                    <div class="form-group">
+                        <input class="btn btn-primary" id="validate_card_btn" name="commit"
+                               type="submit" value="Validate Credit Card">
+                     </div>
+                </form>
+            </div>
+
+            <form action="/Footer/NewsletterSignup" method="post">                    <div class="col-md-6 col-md-offset-0 col-sm-10 col-sm-offset-1 col-xs-12">
+                        <label for="email" class="col-md-12 text-uppercase padleft0 bold bottom5">Join our newsletter for exclusive news and offers</label>
+
+                        <div class="input-group">
+                            <input type="hidden" id="culture" value="en-GB">
+
+                            <input type="email" id="email" class="form-control border-topleft-radius-5 border-bottomleft-radius-5" name="email" required
+                                   data-val="true" data-val-required="Email address is invalid"
+                                   value="Email address"
+                                   data-placeholder="Email address" style="height: 38px;">
+
+                            <span class="input-group-btn border-radius-5">
+                                <button type="submit" class="btn btn-primary js-newsletter-signup">
+                                    <img src="/static/img/svg/next-white.svg" alt="send signup" style="height: 20px; width: 13px;" />
+                                </button>
+                            </span>
+                        </div>
+                        <span class="field-validation-valid padleft10" data-valmsg-for="email" data-valmsg-replace="true"></span>
+                    </div>
+</form>
+
+            </div>
+    </div>
+{% endblock %}

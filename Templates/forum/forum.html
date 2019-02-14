@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load threads_extras %}
+{% block content %}
+{% load bootstrap_tags %}
+<div class="basic-box">
+    <div class="row">
+
+        <div id ="internal-frame-left-intro" class="col-sm-3"><!-- Lateral introduction -->
+            <h2 class="firstColour">Who is your favourite singer?</h2>
+             <table>
+                <tr>
+                    <th class="gap-between-table-elements">ANSWERS</th>
+                </tr>
+                <tr>
+                    <td class="gap-between-table-elements">{{ answers.count }}</td>
+                </tr>
+            </table>
+            <section> <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle standard-style-button" type="button" data-toggle="dropdown"> List of answers&nbsp;&nbsp;&nbsp;
+                <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    {% for answers in answers %}
+                        <li> <a href="{% url 'threads' singer.id %}">{{ singer.name }}</a></li>
+                    {% endfor %}
+                </ul>
+              </div></section>
+        </div><!-- End lateral introduction -->
+
+        <div class="col-sm-9">
+            <div class="row">
+                {% for bandt in bands %}
+                    <div class="col-sm-4" >
+                        <div  class="internal-frame">
+                            <h2><a href="{% url 'threads' band.id %}">{{ band.name }}</a></h2>
+                            <table>
+                                <tr>
+                                    <th class="gap-between-table-elements">THREADS</th>
+                                    <th class="gap-between-table-elements">POSTS</th>
+                                </tr>
+                                <tr>
+                                    <td class="gap-between-table-elements">{{ band.threads.count }}</td>
+                                    <td class="gap-between-table-elements">{{ band|get_total_band_posts }}</td>
+                                </tr>
+                            </table>
+                            <a href="{% url 'threads' band.id %}"  class="btn btn-default btn-md standard-style-button"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>&nbsp; Enter</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

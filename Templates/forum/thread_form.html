@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load bootstrap_tags %}
+{% load staticfiles %}
+{% block head_js %}
+    <script src="{% static 'js/tinymce/tinymce.min.js' %}"></script>
+    <script>
+        tinyMCE.init({mode: "textareas", theme: 'modern', plugins: 'paste'})
+    </script>
+{% endblock %}
+{% block content %}
+<div class="basic-box dotted-background">
+    <section class="row">
+        <form method="post" action="{% url 'new_thread' subject.id %}">
+            {% csrf_token %}
+
+            <div class="col-md-4"><!-- Left half of form -->
+                {{ thread_form | as_bootstrap }}
+                <div id="poll_form" class="form-group">
+                    {{ poll_form | as_bootstrap }}
+                    {{ poll_subject_formset.management_form }}
+                    {% for poll_subject_form in poll_subject_formset %}
+                        {{ poll_subject_form|as_bootstrap }}
+                    {% endfor %}
+                </div>
+            </div><!-- End left half of form -->
+
+            <div class="col-md-8"><!-- Right half of form -->
+                {{ post_form | as_bootstrap }}
+                <div class=" row buttons-form">
+                    <div class="col-sm-6 form-group">
+                        <button type="submit" class="btn btn-default standard-style-button"><span class="glyphicon glyphicon-send" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;Send</button>
+                    </div>
+                    <div id="if-not-sure-sending" class="col-sm-6">
+                     If not sure: &nbsp;&nbsp; <a href="{% url 'threads' subject.id %}"  class="btn btn-default btn-md standard-style-button"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>&nbsp; Threads</a>
+                    </div>
+                </div>
+            </div><!-- End right half of form -->
+
+        </form>
+    </section>
+</div>
+<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+{% endblock %}

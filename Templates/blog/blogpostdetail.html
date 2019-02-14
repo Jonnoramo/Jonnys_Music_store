@@ -1,0 +1,49 @@
+% extends "base.html" %}
+{% block content %}
+{% load bootstrap_tags %}
+{% load staticfiles %}
+{% load emoticons_tags %}
+<div class="row">
+        <div class="blog-post-detail">
+            <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+                <div class="image">
+                    {% if post.image %}
+                        <img src="{{ post.image.medium.url}}"
+                             alt="Music Store image {{ post.published_date | date:"d F Y" }}">
+                    {% endif %}
+                </div>
+                <h1 class="heading">{{ post.title }}</h2>
+                <div class="details">
+                    <p><strong>{{ post.author.public_name }}, {{ post.published_date | date:"d F Y" }}</strong></p>
+                    <p>
+                        {% if post.category %}
+                            Category: {{ post.category|truncatechars:30 }}
+                        {% else %}
+                            Category: Music
+                        {% endif %}
+                        &nbsp;|&nbsp;
+                        <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                        &nbsp;{{ post.views }}
+                    </p>
+                </div>
+                <div class="content">
+                    {% autoescape off %}
+                        {{ post.content|linebreaks }}
+                    {% endautoescape %}
+                </div>
+                <div class="dialog-buttons">
+                    <button class="btn btn-info" onclick="location.href='/blog'">Back to blog</button>
+                    {% if staff %}
+                        <button class="btn btn-warning" onclick="location.href='edit'">Edit</button>
+                    {% endif %}
+                        <button class="btn btn-warning" onclick="location.href='edit'">Logout</button>
+                </div>
+
+                <hr>
+                {% load disqus_tags %}
+                {% set_disqus_title post.title %}
+                {% disqus_show_comments %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
