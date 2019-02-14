@@ -24,4 +24,5 @@ urlpatterns = [
     url(r'^profile/$', accounts_views.profile, name='profile'),
     url(r'^login/$', accounts_views.login, name='login'),
     url('', include('hello.urls')),
+    url('', include('contact.urls')),
 ]
