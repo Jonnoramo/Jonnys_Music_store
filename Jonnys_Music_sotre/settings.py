@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.flatpages',
     'django_forms_bootstrap',
     'accounts',
+    'blog',
+    'contact',
     'hello',
 ]
 
