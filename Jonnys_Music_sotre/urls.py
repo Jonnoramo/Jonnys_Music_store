@@ -24,8 +24,8 @@ urlpatterns = [
     url(r'^register/$', accounts_views.register, name='register'),
     url(r'^profile/$', accounts_views.profile, name='profile'),
     url(r'^login/$', accounts_views.login, name='login'),
+    url(r'^music/$', music_views.all_music),
     url('', include('hello.urls')),
     url('', include('blog.urls')),
     url('', include('contact.urls')),
-    url(r'^music/$', music_views.all_music),
 ]
