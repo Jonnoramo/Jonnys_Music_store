@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'hello',
     'music',
     'paypal_store',
+    'polls',
 ]
 
 MIDDLEWARE = [
