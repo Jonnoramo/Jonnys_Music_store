@@ -40,11 +40,14 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.flatpages',
     'django_forms_bootstrap',
+    'paypal.standard.ipn',
+    'tinymce',
     'accounts',
     'blog',
     'contact',
     'hello',
     'music',
+    'paypal_store',
 ]
 
 MIDDLEWARE = [
