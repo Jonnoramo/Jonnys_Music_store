@@ -29,4 +29,5 @@ urlpatterns = [
     url('', include('blog.urls')),
     url('', include('contact.urls')),
     url('', include('paypal_store.urls')),
+    url('', include('threads.urls')),
 ]
