@@ -17,6 +17,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from accounts import views as accounts_views
 from hello import views
+from music import views as music_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -26,4 +27,5 @@ urlpatterns = [
     url('', include('hello.urls')),
     url('', include('blog.urls')),
     url('', include('contact.urls')),
+    url(r'^music/$', music_views.all_music),
 ]
