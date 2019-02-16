@@ -1,0 +1,1 @@
+web: gunicorn Jonnys_Music_sotre.wsgi:application
