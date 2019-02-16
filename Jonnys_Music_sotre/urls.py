@@ -16,6 +16,7 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from accounts import views as accounts_views
+from products import views as product_views
 from hello import views
 from music import views as music_views
 
@@ -23,7 +24,8 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^register/$', accounts_views.register, name='register'),
     url(r'^profile/$', accounts_views.profile, name='profile'),
-    url(r'^login/$', accounts_views.login, name='login'),
+    url(r'^login/$', accounts_views.login, name='login'),   
+    url(r'^products/$', product_views.all_products),
     url(r'^music/$', music_views.all_music),
     url('', include('hello.urls')),
     url('', include('blog.urls')),
