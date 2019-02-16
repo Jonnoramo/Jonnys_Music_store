@@ -25,7 +25,7 @@ SECRET_KEY = '_u*q=hl(_i4^ez9+xyftpdqh#wjis=pd1939_in^hirv9n*j!@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['jonnys-music-store.herokuapp.com']
 
 
 # Application definition
