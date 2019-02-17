@@ -25,7 +25,7 @@ SECRET_KEY = '_u*q=hl(_i4^ez9+xyftpdqh#wjis=pd1939_in^hirv9n*j!@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['jonnys-music-store.herokuapp.com']
+ALLOWED_HOSTS = [ 'jonnys-music-store.herokuapp.com']
 
 
 # Application definition
@@ -146,6 +146,8 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     'accounts.backends.EmailAuth',
 )
+
+LOGIN_URL = '/login/'
 
 # Stripe environment variables
 STRIPE_PUBLISHABLE = os.getenv('STRIPE_PUBLISHABLE', 'pk_test_hpcZE37YYAtzxO2DZYKTNwIp')
