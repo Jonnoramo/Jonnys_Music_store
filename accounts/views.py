@@ -28,7 +28,7 @@ def register(request):
                     description=form.cleaned_data['email'],
                     card=form.cleaned_data['stripe_id'],
                 )
-            except stripe.error.CardError, e:
+            except stripe.error.CardError as e:
                 messages.error(request, 'Your card was declined!')
             if customer.paid:
                 form.save()
