@@ -1,5 +1,5 @@
 from django import forms
-from models import Poll, PollSubject
+from .models import Poll, PollSubject
 
 
 class PollForm(forms.ModelForm):
