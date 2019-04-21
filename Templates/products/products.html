@@ -13,7 +13,7 @@
                 Have a quick look below and purchase your favourite music.
             </p>
             <p> They will help you relex and unwind. It is great thing to share with friends, and can be played for special occasions.</p>
-            <p> All CDs come with 1 month warranty.</p><hr>
+            <p> All products come with 1 month warranty.</p><hr>
             <hr>
         </div>
 
@@ -30,12 +30,12 @@
             </tr>
         </thead>
         <tbody>
-            {% for CD in CDs %}
+            {% for product in products %}
                 <tr>
-                    <td>{{ CD.name }}</td>
-                    <td>{{ CD.description }}</td>
-                    <td>€ {{ CD.price }}</td>
-                    <td>{{ CD.paypal_form.sandbox }}</td>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.description }}</td>
+                    <td>€ {{ product.price }}</td>
+                    <td>{{ product.paypal_form.sandbox }}</td>
                 </tr>
             {% endfor %}
         </tbody>
