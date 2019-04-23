@@ -28,17 +28,17 @@ body {
            <li><a href="{% url 'about' %}">About</a></li>
            <li><a href="{% url 'email' %}">Contact</a></li>
 
-          {% if user.is_authenticated%}
+
              <li><a href="/products/">Products</a></li>
              <li><a href="/music/">Music</a></li>
              <li><a href="/blog/">Blog</a></li>
              <li><a href="/forum/">Forum</a> </li>
              <li><a href="/profile/">Profile</a> </li>
              <li><a href="{% url 'logout' %}">Log Out</a></li>
-          {% else %}
+
              <li><a href="{% url 'register' %}">Register</a></li>
              <li><a href="{% url 'login' %}">Log In</a></li>
-          {% endif %}
+ 
        </ul>
        <h1><span class="fui-settings-16 muted">The Music Store</span></h1>
    </div>

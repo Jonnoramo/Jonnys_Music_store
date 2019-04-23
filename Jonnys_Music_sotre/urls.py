@@ -20,7 +20,6 @@ from blog import views as blog_views
 from products import views as product_views
 from hello import views
 from music import views as music_views
-from thread import views as thread_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -34,14 +33,6 @@ urlpatterns = [
     url(r'^blog/$', blog_views.post_list, name="post_list"),
     url(r'^blog/(?P<id>\d+)/$', blog_views.post_details, name="post_details"),
     url(r'^blog/post/$', blog_views.new_post, name='new_post'),
-    url(r'^forum/$', thread_views.forum, name='forum'),
-    url(r'^threads/(?P<subject_id>\d+)/$', thread_views.threads, name='threads'),
-    url(r'^new_thread/(?P<subject_id>\d+)/$', thread_views.new_thread, name='new_thread'),
-    url(r'^thread/(?P<thread_id>\d+)/$', thread_views.thread, name='thread'),
-    url(r'^post/new/(?P<thread_id>\d+)/$', thread_views.new_post, name='new_post'),
-    url(r'^post/edit/(?P<thread_id>\d+)/(?P<post_id>\d+)/$', thread_views.edit_post, name='edit_post'),
-    url(r'^post/delete/(?P<post_id>\d+)/$', thread_views.delete_post, name='delete_post'),
-    url(r'^thread/vote/(?P<thread_id>\d+)/(?P<subject_id>\d+)/$', thread_views.thread_vote, name='cast_vote'),
     url('', include('hello.urls')),
     url('', include('contact.urls')),
     url('', include('paypal_store.urls')),

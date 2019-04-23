@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-{% load threads_extras %}
 {% block content %}
 {% load bootstrap_tags %}
 <div class="basic-box">
@@ -40,7 +39,6 @@
                                 </tr>
                                 <tr>
                                     <td class="gap-between-table-elements">{{ band.threads.count }}</td>
-                                    <td class="gap-between-table-elements">{{ band|get_total_band_posts }}</td>
                                 </tr>
                             </table>
                             <a href="{% url 'threads' band.id %}"  class="btn btn-default btn-md standard-style-button"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>&nbsp; Enter</a>
