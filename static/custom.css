@@ -77,10 +77,7 @@ p{
     color:#85bfea;
     padding: 10px;
 }
-#googleMap{
-    min-height: 320px;
-    padding: 30px;
-}
+
 
 #home-page{
     background-color: #85bfea;
@@ -110,14 +107,6 @@ p{
     padding: 30px 0;
 }
 
-#whatis i{
-    font-size: 80px;
-    color:#fff;
-}
-
-#whatis p{
-    text-align: justify;
-}
 
 #footer{
     background-color: #fff;
