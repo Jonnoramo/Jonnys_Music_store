@@ -1,52 +1,38 @@
-{% load staticfiles %}
-{% load bootstrap_tags %
-   <div class="row">
-        <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
-            <div class="dialog">
-                <legend>Your profile</legend>
-                <h3>Account</h3>
-                <p>You are logged in as <strong>{{ user.email }}</strong></p>
-                <p>You joined {{ user.date_joined|date:"d F Y" }}</p>
-                <hr>
-                <div>
-                    <h3>Forums</h3>
-                    <p>
-                        {% if user.profile_image %}
-                            <img src="{{ user.profile_image.small.url }}" alt="{{ user.public_name }}"
-                                 width="96" height="96"/>
-                        {% else %}
-                            <img src="{% static 'img/user_placeholder.png' %}" alt="User placeholder"
-                                 width="96" height="96"/>
-                        {% endif %}
-                    </p>
-                    <form method="POST" enctype="multipart/form-data">
-                        {% csrf_token %}
-                        {{ form|as_bootstrap }}
-                        <div class="dialog-buttons">
-                            <input class="btn btn-info" type="submit" value="Save profile">
-                        </div>
-                    </form>
-                </div>
-                <hr>
-                <div>
-                    <h3>Subscription</h3>
-                    <p>You have <strong>{{ user.subscription_end|timeuntil}}</strong> left on your subscription</p>
-                    <div class="dialog-buttons">
-                        <a href="{% url "cancel_subscription" %}"
-                           onclick="return cancelSubscriptionCheck();"
-                           class="btn btn-danger">Cancel subscription</a>
-                    </div>
-                </div>
+{% extends "base.html" %}
+{% load bootstrap_tags %}
+{% block content %}
+
+    <div class="row intro">
+    <div class="container">
+<h1>Your Profile</h1>
+        </div>
+</div>
+
+<div class="container text-justify">
+    <div class="row">
+        <div class="col-md-12">
+    <h2> Welcome {{ user.first_name }}!</h2>
+    <p> You are logged in as <strong>{{ user.email }}</strong> </p>
             </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+    <p> Your last login was on {{ user.last_login }}</p>
+            </div>
+    </div>
+    {% if user.stripe_id %}
+    <div class="row">
+        <div class="col-md-6">
+            <p> Your stripe id is {{ user.stripe_id }}</p>
         </div>
     </div>
 
+    <div class="row">
+        <div class="col-md-6">
+            <p> You have paid € 4.99 through Stripe to join our website. Thank you!<br> Now fire away those ideas in our forum.</p>
+        </div>
+    </div>
+    {% endif %}
 
-    <script type="text/javascript">
-        function cancelSubscriptionCheck() {
-            if (confirm('Are you sure you want to cancel?')) {
-                return true;
-            }
-            return false;
-        }
-    </script>
+</div>
+{% endblock %}
