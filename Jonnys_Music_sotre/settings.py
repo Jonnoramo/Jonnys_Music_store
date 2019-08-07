@@ -159,7 +159,7 @@ MEDIA_URL = '/media/'
 # Paypal environment variables
 SITE_URL = 'http://127.0.0.1:8000'
 PAYPAL_NOTIFY_URL = 'http://127.0.0.1/a-very-hard-to-guess-url/'
-PAYPAL_RECEIVER_EMAIL = 'test_cib@aaaa.com'
+PAYPAL_RECEIVER_EMAIL = 'ramsden_118@hotmai.com'
 
 # Heroku: Update database configuration from $DATABASE_URL.
 import dj_database_url
