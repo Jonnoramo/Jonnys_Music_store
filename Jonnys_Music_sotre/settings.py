@@ -151,7 +151,7 @@ LOGIN_URL = '/login/'
 
 # Stripe environment variables
 STRIPE_PUBLISHABLE = os.getenv('STRIPE_PUBLISHABLE', 'pk_test_hpcZE37YYAtzxO2DZYKTNwIp')
-STRIPE_SECRET = os.getenv('STRIPE_SECRET', 'sk_test_4lB7Gs6AEqjCwTdMN12WFgs6')
+STRIPE_SECRET = os.getenv('STRIPE_SECRET', 'sk_test_WXaULQtzQHt0ZZYxkRSDtXRf')
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'

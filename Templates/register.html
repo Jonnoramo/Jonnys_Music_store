@@ -6,7 +6,7 @@
     <script src="https://js.stripe.com/v2/" type="text/javascript"></script>
   <script type="text/javascript">
       //<![CDATA[
-      Stripe.publishableKey = '{{ publishable }}';
+      Stripe.publishableKey = '{{ publishable }};'
       //]]>
   </script>
   <script type="text/javascript" src="{% static "js/stripe.js" %}"></script>
@@ -45,26 +45,7 @@
                 </form>
             </div>
 
-            <form action="/Footer/NewsletterSignup" method="post">                    <div class="col-md-6 col-md-offset-0 col-sm-10 col-sm-offset-1 col-xs-12">
-                        <label for="email" class="col-md-12 text-uppercase padleft0 bold bottom5">Join our newsletter for exclusive news and offers</label>
-
-                        <div class="input-group">
-                            <input type="hidden" id="culture" value="en-GB">
-
-                            <input type="email" id="email" class="form-control border-topleft-radius-5 border-bottomleft-radius-5" name="email" required
-                                   data-val="true" data-val-required="Email address is invalid"
-                                   value="Email address"
-                                   data-placeholder="Email address" style="height: 38px;">
-
-                            <span class="input-group-btn border-radius-5">
-                                <button type="submit" class="btn btn-primary js-newsletter-signup">
-                                    <img src="/static/img/svg/next-white.svg" alt="send signup" style="height: 20px; width: 13px;" />
-                                </button>
-                            </span>
-                        </div>
-                        <span class="field-validation-valid padleft10" data-valmsg-for="email" data-valmsg-replace="true"></span>
-                    </div>
-</form>
+ 
 
             </div>
     </div>

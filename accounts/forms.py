@@ -27,7 +27,7 @@ class UserRegistrationForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'email', 'password1', 'password2', 'stripe_id']
+        fields = ['first_name', 'last_name', 'email', 'stripe_id']
         exclude = ['username']
 
     def clean_password2(self):
