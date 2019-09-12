@@ -6,8 +6,8 @@ from django.core.exceptions import ValidationError
 
 class UserRegistrationForm(UserCreationForm):
 
-    MONTH_CHOICES = [(i, i,) for i in xrange(1, 12)]
-    YEAR_CHOICES = [(i, i,) for i in xrange(2016, 2036)]
+    MONTH_CHOICES = [(i, i,) for i in range(1, 12)]
+    YEAR_CHOICES = [(i, i,) for i in range(2016, 2036)]
 
     credit_card_number = forms.CharField(label='Credit card number')
     cvv = forms.CharField(label='Security Code (CVV)')
