@@ -1,6 +1,6 @@
 arrow==0.13.0
 beautifulsoup4==4.7.1
-Django==1.11.20
+Django==1.11.29
 django-emoticons==1.2
 djangorestframework==3.9.1
 django-forms-bootstrap==3.1.0
