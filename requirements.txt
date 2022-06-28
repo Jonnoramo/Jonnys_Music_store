@@ -1,4 +1,4 @@
-arrow==0.13.0
+arrow==0.15.1
 beautifulsoup4==4.7.1
 Django==1.11.20
 django-emoticons==1.2
